@@ -1,3 +1,16 @@
 @import "variables";
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 @import "typography";
+
+.current {
+  text-decoration: underline;
+}
+.hello {
+  text-decoration: underline;
+}
+
+.navbar-toggler,
+.navbar-toggler-icon {
+  border-color: $primary;
+  color: $primary;
+}
