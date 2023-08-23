@@ -19,6 +19,12 @@ a {
   background-repeat: no-repeat;
   background-position: center;
   height: 95vh;
+
+  @media (max-width: 600px) {
+    height: 40vh;
+    background-position-y: -16em;
+    background-position-x: -15em;
+  }
 }
 .btn {
   min-width: 100px;
