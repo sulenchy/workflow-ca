@@ -5,12 +5,12 @@
 .current {
   text-decoration: underline;
 }
-.hello {
-  text-decoration: underline;
-}
 
 .navbar-toggler,
 .navbar-toggler-icon {
   border-color: $primary;
   color: $primary;
+}
+a {
+  text-decoration: none;
 }
