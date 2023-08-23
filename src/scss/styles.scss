@@ -9,8 +9,46 @@
 .navbar-toggler,
 .navbar-toggler-icon {
   border-color: $primary;
-  color: $primary;
 }
 a {
   text-decoration: none;
+}
+
+.intro {
+  background-image: url("../../images/intro.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 95vh;
+}
+.btn {
+  min-width: 100px;
+}
+
+.about {
+  h2 {
+    max-width: 880px;
+  }
+}
+
+.card {
+  max-width: 300px;
+  border: 2px solid $green;
+
+  svg {
+    height: 120px;
+    width: 120px;
+    color: $green;
+  }
+}
+
+.card-container {
+  max-width: 1200px;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  form {
+    max-width: 330px;
+  }
 }

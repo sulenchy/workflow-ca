@@ -5,14 +5,28 @@ $pink: #fff9fb;
 $red: #e83a3a;
 $orange: #fd7e14;
 $yellow: #ffc107;
-$green: #198754;
+$green: #50e213;
 $teal: #20c997;
 $cyan: #0dcaf0;
 
 $primary: $red;
 $secondary: $pink;
+$info: #3854c4;
+$light: #f7f7f7;
 
 $navbar-light-icon-color: $red;
 
 $font-heading: "Poppins";
 $font-paragraph: "Open sans";
+
+$h1-font-size: 1rem * 3.5;
+
+$spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer * 1.5,
+  4: $spacer * 2.5,
+  5: $spacer * 4,
+);
