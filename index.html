@@ -26,17 +26,14 @@
           </button>
           <div class="collapse navbar-collapse flex-md-grow-0" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
+              <li class="nav-item px-2">
                 <a class="nav-link text-primary current fs-4" aria-current="page" href="index.html">Home</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link text-primary fs-4" href="#">About</a>
+              <li class="nav-item px-2">
+                <a class="nav-link text-primary fs-4" href="/feed/index.html">Feed</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link text-primary fs-4" href="#">Profile</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-primary fs-4" href="#">Feed</a>
+              <li class="nav-item px-2">
+                <a class="nav-link text-primary fs-4" href="/profile/index.html">Profile</a>
               </li>
             </ul>
           </div>
@@ -50,8 +47,8 @@
           <p class="mb-0 text-body-secondary">Connecting interests. forging friendships</p>
           <p class="text-body-secondary">Welcome to Friendly</p>
           <div>
-            <a href="#" class="btn btn-info"> Log In</a>
-            <a href="#" class="btn btn-info ms-5">Registrer</a>
+            <a href="#log-in_section" class="btn btn-info"> Log In</a>
+            <a href="#log-in_section" class="btn btn-info ms-5">Registrer</a>
           </div>
         </div>
       </section>
@@ -97,11 +94,11 @@
           </div>
         </div>
       </section>
-      <section class="py-5">
+      <section class="py-5" id="log-in_section">
         <h2 class="text-center text-primary mb-5 fs-1">Friendly</h2>
-        <div class="form-container">
-          <form action="profile/index.html" class="m-auto text-center">
-            <h1 class="h3 mb-3 fw-normal text-primary">Log in</h1>
+        <div class="form-container d-flex flex-column-reverse flex-md-row-reverse justify-content-end">
+          <form action="feed/index.html" class="m-auto text-center">
+            <h2 class="h3 mb-3 fw-normal text-primary">Log in</h2>
             <div class="form-floating mb-3">
               <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required />
               <label for="floatingInput">Email address</label>
@@ -110,13 +107,40 @@
               <input type="password" class="form-control" id="floatingPassword" placeholder="Password" />
               <label for="floatingPassword">Password</label>
             </div>
-            <button class="btn btn-info w-50 py-2" type="submit">Sign in</button>
+            <button class="btn btn-info w-50 py-2 mb-5" type="submit">Sign in</button>
+          </form>
+          <form action="profile/index.html" class="m-auto text-center">
+            <h2 class="h3 mb-3 fw-normal text-primary">Registrer now</h2>
+            <div class="form-floating mb-3">
+              <input type="first-name" class="form-control" id="floatingInput" placeholder="first-name" required />
+              <label for="floatingInput">First name</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="last-name" class="form-control" id="floatingInput" placeholder="last-name" required />
+              <label for="floatingInput">Last name</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required />
+              <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="password" class="form-control" id="floatingPassword" placeholder="Password" minlength="8" required />
+              <label for="floatingPassword">Password</label>
+            </div>
+            <button class="btn btn-info w-50 py-2 mb-5" type="submit">Registrer</button>
           </form>
         </div>
+        <div class="form-container"></div>
       </section>
     </main>
-    <footer class="mt-auto bg-secondary">
-      <a class="fw-bold text-primary fs-2" href="index.html">Friendly</a>
+
+    <footer class="d-flex flex-wrap justify-content-around align-items-center py-3 border-top bg-secondary">
+      <p class="mb-0 text-primary"><b class="fs-5">Friendly</b> © 2023 Company</p>
+      <ul class="nav">
+        <li class="nav-item"><a href="index.html" class="nav-link px-2 text-primary">Home</a></li>
+        <li class="nav-item"><a href="/feed/index.html" class="nav-link px-2 text-primary">Feed</a></li>
+        <li class="nav-item"><a href="profile/index.html" class="nav-link px-2 text-primary">Profile</a></li>
+      </ul>
     </footer>
   </body>
 </html>

@@ -6,14 +6,16 @@
   text-decoration: underline;
 }
 
-.navbar-toggler,
-.navbar-toggler-icon {
+.navbar-toggler {
   border-color: $primary;
+}
+.navbar-toggler:focus {
+  box-shadow: none;
 }
 a {
   text-decoration: none;
 }
-
+// index.html
 .intro {
   background-image: url("../../images/intro.jpg");
   background-repeat: no-repeat;
@@ -37,12 +39,12 @@ a {
 }
 
 .card {
-  max-width: 300px;
-  border: 2px solid $green;
+  max-width: 250px;
+  border: 1px solid $green;
 
   svg {
-    height: 120px;
-    width: 120px;
+    height: 100px;
+    width: 100px;
     color: $green;
   }
 }
@@ -55,6 +57,19 @@ a {
 
 .form-container {
   form {
-    max-width: 330px;
+    max-width: 600px;
+  }
+}
+
+.feed-main {
+  max-width: 13;
+  .container {
+    max-width: 900px;
+  }
+}
+.post {
+  img {
+    border-radius: 50%;
+    max-width: 150px;
   }
 }
