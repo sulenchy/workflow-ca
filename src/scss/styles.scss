@@ -60,8 +60,14 @@ a {
 }
 
 .form-container {
-  max-width: 800px;
+  form {
+    width: 230px;
+  }
+  input {
+    width: 100%;
+  }
 }
+
 //  feed
 .profile,
 .feed-main {
