@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Meet new friends, share your interests, and forge memories and Friendly" />
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@500;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../dist/css/styles.css" />
     <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Document</title>
+    <title>Friendly | Profile</title>
   </head>
   <body class="d-flex flex-column min-vh-100">
     <header class="position-sticky top-0 z-3 border-bottom border-primary">
@@ -43,7 +44,7 @@
     <main class="mx-auto">
       <section class="profile my-3">
         <div class="d-flex justify-content-around">
-          <img src="../images/profile.jpg" alt="girl" class="me-2" />
+          <img src="../images/profile.jpg" alt="girl" class="me-2 profile-img" />
           <div>
             <h1 class="text-primary mb-1">Sofia Mitchell</h1>
             <p class="mb-1">32years</p>
@@ -57,28 +58,23 @@
           <button class="btn btn-primary text-white">Followers</button>
         </div>
         <div class="bg-secondary p-3">
-          <p class="text-primary pt-2 fw-bold">Sofia Mitchell`s latest post`s:</p>
-          <div class="post p-3 mb-4 bg-white">
+          <p class="text-primary pt-2 fw-bold fs-5">Sofia Mitchell`s latest post`s:</p>
+          <div class="post p-3 mb-3 bg-white">
+            <div class="d-flex align-items-center pb-2 border-bottom border-primary">
+              <img src="../images/profile.jpg" alt="girl" />
+              <h2 class="text-primary  fw-bold ps-2 pt-2 fs-5">Sofia Mitchell</h2>
+            </div>
             <div>
-              <h3 class="pt-2">Unveiling the Beauty of Brush and Canvas</h3>
+              <h3 class="pt-2 fs-6 fw-bold mb-1">Unveiling the Beauty of Brush and Canvas</h3>
               <p class="text-muted">
                 As an avid painter, I've come to cherish the tranquil moments spent in front of my easel. Whether it's the vibrant hues of a breathtaking
                 landscape or the intricate details of a still life arrangement, each painting is a reflection of my thoughts and feelings, frozen in
-                <span class="text-info text-decoration-underline">View More</span>
+                <span class="text-info text-decoration-underline fw-bold fs-6  view-more">View More</span>
               </p>
               <div>
-                <div class="form-floating mb-2">
-                  <input type="Comment" class="form-control" id="floatingInput" placeholder="Comment" required="" />
-                  <label for="floatingInput" class="text-muted">Comment</label>
-                </div>
-                <button class="btn btn-info">Comment</button>
-              </div>
-              <div>
-                <p class="my-3 text-muted">Be the first one to comment</p>
+                <button class="btn btn-info">Comments</button>
               </div>
             </div>
-          </div>
-        </div>
       </section>
     </main>
     <footer class="mt-auto d-flex flex-wrap justify-content-around align-items-center py-3 border-top border-primary bg-secondary">
