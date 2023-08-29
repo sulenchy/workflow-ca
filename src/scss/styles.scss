@@ -1,6 +1,7 @@
 @import "variables";
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 @import "typography";
+@import "media";
 
 .current {
   text-decoration: underline;
@@ -15,6 +16,9 @@
 a {
   text-decoration: none;
 }
+.btn {
+  min-width: 100px;
+}
 
 // index.html
 .intro {
@@ -28,9 +32,6 @@ a {
     background-position-y: -16em;
     background-position-x: -15em;
   }
-}
-.btn {
-  min-width: 100px;
 }
 
 .about {
@@ -62,7 +63,8 @@ a {
 .form-container {
   max-width: 800px;
 }
-
+//  feed
+.profile,
 .feed-main {
   .container {
     max-width: 900px;
