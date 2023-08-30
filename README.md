@@ -1,5 +1,5 @@
 ## css-frameworks-ca
-
+![Friendly](https://github.com/Tokle89/css-frameworks/assets/94007467/216af4e8-93c7-4f9f-9292-b2401af816e7)
 Was asked to create a social media site using bootstrap and scss to show knowledge in using the framework.
 
 Site architecture:
