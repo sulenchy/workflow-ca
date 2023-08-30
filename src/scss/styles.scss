@@ -1,99 +1,14 @@
 @import "variables";
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 @import "typography";
+@import "nav";
+@import "index";
+@import "feed";
+@import "profile";
+@import "base";
 
-.current {
-  text-decoration: underline;
-}
 
-.navbar-toggler {
-  border-color: $primary;
-}
-.navbar-toggler:focus {
-  box-shadow: none;
-}
-a {
-  text-decoration: none;
-}
-.btn {
-  min-width: 100px;
-}
 
-// index.html
-.intro {
-  background-image: url("../../images/intro.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 95vh;
 
-  @media (max-width: 600px) {
-    height: 60vh;
-    background-position-y: -16em;
-    background-position-x: -15em;
-  }
-}
 
-.about {
-  h2 {
-    max-width: 700px;
-  }
-}
 
-.card {
-  max-width: 250px;
-  border: none;
-
-  svg {
-    height: 100px;
-    width: 100px;
-    color: $primary;
-
-    @media (max-width: 600px) {
-      height: 50px;
-      width: 50px;
-    }
-  }
-}
-
-.card-container {
-  max-width: 1200px;
-}
-
-.form-container {
-  form {
-    width: 230px;
-  }
-  input {
-    width: 100%;
-  }
-}
-
-//  feed
-.profile,
-.feed-main {
-  .container {
-    max-width: 900px;
-  }
-}
-.post {
-  img {
-    border-radius: 50%;
-    max-width: 60px;
-  }
-}
-
-.dropdown-menu {
-  border-color: $primary;
-}
-// profile
-.profile {
-  max-width: 900px;
-  .profile-img {
-    border-radius: 50%;
-    max-width: 120px;
-  }
-
-  .btn {
-    border-radius: 0px;
-  }
-}
