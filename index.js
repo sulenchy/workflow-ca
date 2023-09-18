@@ -8,3 +8,10 @@ register.addEventListener("submit", (event) => {
   const [userName, email, password] = event.target.elements;
   registerUser(userName, email, password);
 });
+
+const container = document.querySelectorAll("main");
+console.log(container);
+
+const createModalMsg = () => {
+  const element = document.createElement("div");
+};

@@ -1,8 +1,9 @@
 import { baseUrl } from "./constant.js";
 
-export const apiCall = async (url, method, data) => {
+export const apiCall = async (url, method, data, returnResult) => {
   try {
     const newUrl = baseUrl + url;
+
     const response = await fetch(newUrl, {
       method: method,
       headers: {
@@ -10,10 +11,10 @@ export const apiCall = async (url, method, data) => {
       },
       body: data,
     });
-    console.log(response);
+
     const result = await response.json();
-    console.log(result);
-    if ((method = "get")) {
+
+    if ((returnResult = "return")) {
       return result;
     }
   } catch (error) {

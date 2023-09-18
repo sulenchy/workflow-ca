@@ -1,10 +1,21 @@
 import { apiCall } from "../api/api.js";
 
-export const registerUser = (userName, email, password) => {
+export const registerUser = async (userName, email, password) => {
   const data = JSON.stringify({
     name: userName.value,
     email: email.value,
     password: password.value,
   });
-  apiCall("social/auth/register", "post", data);
+
+  const response = await apiCall("social/auth/register", "post", data, "return");
+  const { status, errors } = response;
+
+  if (status == "Bad Request") {
+    entryError(errors);
+  }
+};
+
+const entryError = (result) => {
+  console.log(result);
+  result.filter(({ message }) => console.log(message));
 };
