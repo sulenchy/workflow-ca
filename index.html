@@ -11,6 +11,7 @@
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
       crossorigin="anonymous"
     ></script>
+    <script type="module" src="index.js"></script>
     <title>Friendly | Home page</title>
   </head>
   <body class="d-flex flex-column min-vh-100">
@@ -106,7 +107,7 @@
         <div class="form-container container">
           <div class="row justify-content-evenly">
             <div class="col-9 col-sm-5 col-lg-3">
-              <form action="feed/index.html">
+              <form action="feed/index.html" id="log-in">
                 <h2 class="h3 mb-3 fw-normal text-primary text-center">Log in</h2>
                 <div class="mb-3">
                   <label for="email">Email address</label>
@@ -120,15 +121,11 @@
               </form>
             </div>
             <div class="col-9 col-sm-5 col-lg-3">
-              <form action="profile/index.html" class="">
+              <form action="profile/index.html" id="register">
                 <h2 class="h3 mb-3 fw-normal text-primary text-center">Register now</h2>
                 <div class="mb-3">
-                  <label for="first name">Email address</label>
-                  <input type="text" id="first name" placeholder="first name" class="p-1" required />
-                </div>
-                <div class="mb-3">
-                  <label for="last name">Password (min 8 characters)</label>
-                  <input type="last name" id="lastname" placeholder="Last name" class="p-1" required />
+                  <label for="username">User name</label>
+                  <input type="text" id="username" placeholder="user name" class="p-1" required />
                 </div>
                 <div class="mb-3">
                   <label for="email">Email address</label>
