@@ -10,8 +10,9 @@ export const apiCall = async (url, method, data) => {
       },
       body: data,
     });
+    console.log(response);
     const result = await response.json();
-
+    console.log(result);
     if ((method = "get")) {
       return result;
     }
