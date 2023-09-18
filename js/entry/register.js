@@ -7,7 +7,7 @@ export const registerUser = async (userName, email, password) => {
     password: password.value,
   });
 
-  const response = await apiCall("social/auth/register", "post", data, "return");
+  const response = await apiCall("social/auth/register", "post", data, true);
   const { status, errors } = response;
 
   if (status == "Bad Request") {

@@ -11,10 +11,10 @@ export const apiCall = async (url, method, data, returnResult) => {
       },
       body: data,
     });
-
+    console.log(response);
     const result = await response.json();
 
-    if ((returnResult = "return")) {
+    if (returnResult === true) {
       return result;
     }
   } catch (error) {
