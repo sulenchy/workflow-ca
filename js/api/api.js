@@ -1,6 +1,6 @@
 import { baseUrl } from "./constant.js";
 
-export const apiCall = async (url, method, data, returnResult) => {
+export const apiCall = async (url, method, data) => {
   try {
     const newUrl = baseUrl + url;
 
@@ -13,10 +13,7 @@ export const apiCall = async (url, method, data, returnResult) => {
     });
     console.log(response);
     const result = await response.json();
-
-    if (returnResult === true) {
-      return result;
-    }
+    return result;
   } catch (error) {
     console.log(error);
   }

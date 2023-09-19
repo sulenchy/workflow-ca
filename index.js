@@ -1,17 +1,19 @@
 import { registerUser } from "./js/entry/register.js";
+import { loginUser } from "./js/entry/login.js";
 
-const logIn = document.getElementById("log-in");
+const login = document.getElementById("log-in");
 const register = document.getElementById("register");
 
-register.addEventListener("submit", (event) => {
+register.addEventListener("submit", () => {
   event.preventDefault();
   const [userName, email, password] = event.target.elements;
   registerUser(userName, email, password);
+  register.reset();
 });
 
-const container = document.querySelectorAll("main");
-console.log(container);
-
-const createModalMsg = () => {
-  const element = document.createElement("div");
-};
+login.addEventListener("submit", () => {
+  event.preventDefault();
+  const [email, password] = event.target.elements;
+  loginUser(email, password);
+  // login.reset();
+});
