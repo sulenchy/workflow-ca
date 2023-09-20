@@ -7,12 +7,13 @@ export const loginUser = async (email, password) => {
     email: email.value,
     password: password.value,
   });
-  const { accessToken } = await apiCall("social/auth/login", "post", data);
+  const { accessToken, name } = await apiCall("social/auth/login", "post", data);
 
   if (!accessToken) {
     displayMessage("login", "Wrong username or password", "danger");
     return;
   }
   setLocalStorage("token", accessToken);
+  setLocalStorage("name", name);
   window.location.replace("../../profile/index.html");
 };

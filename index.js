@@ -15,5 +15,4 @@ login.addEventListener("submit", () => {
   event.preventDefault();
   const [email, password] = event.target.elements;
   loginUser(email, password);
-  // login.reset();
 });
