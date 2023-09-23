@@ -1,6 +1,7 @@
 import { createElement } from "./createHtmlFunction.js";
 
 const profileInfoContainer = document.getElementById("profile-info");
+const feedBtnContainer = document.getElementById("feed-btn-container");
 
 export const createProfileInfo = (name, email, avatar) => {
   const img = createElement("img", ["me-2", "profile-img"], undefined, undefined, undefined, "../images/profile.jpg", `${name}`);
@@ -18,6 +19,18 @@ export const createProfileInfo = (name, email, avatar) => {
   profileInfoContainer.append(img, element);
 };
 
-export const followButtons = ({ followers, following }) => {
-  console.log(followers);
+export const createFeedBtnInfo = ({ posts, followers, following }) => {
+  const btnsArray = Object.values(feedBtnContainer.children);
+
+  btnsArray.forEach((btn, i) => {
+    changeBtnInnerText(btn, i, 0, posts);
+    changeBtnInnerText(btn, i, 1, followers);
+    changeBtnInnerText(btn, i, 2, following);
+  });
+};
+
+const changeBtnInnerText = (btn, i, number, text) => {
+  if (i === number) {
+    btn.innerText += ` (${text})`;
+  }
 };
