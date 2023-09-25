@@ -9,4 +9,5 @@ export const renderProfile = ({ name, email, avatar, _count }) => {
 
 export const renderPosts = (posts) => {
   posts.forEach(createPosts);
+  console.log(posts);
 };
