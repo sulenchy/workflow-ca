@@ -5,11 +5,10 @@ import { createCommentsContainer } from "./comments.js";
 const postContainer = document.getElementById("posts-container");
 console.log(postContainer);
 
-export const createPosts = ({ author, title, body, tags, media, created, id }) => {
+export const createPosts = ({ author, title, body, tags, media, created, id, comments }) => {
   const post = createElement("div", ["post", "p-3", "mb-3", "bg-white"]);
   const postAuthor = createPostAuthor(author);
-  const postContent = createPostContent(title, body, tags, media, created, id);
-
+  const postContent = createPostContent(title, body, tags, media, created, id, comments);
   post.append(postAuthor, postContent);
   postContainer.append(post);
 };
@@ -31,7 +30,7 @@ const createPostAuthor = ({ name, avatar }) => {
   return element;
 };
 
-const createPostContent = (title, body, tags, media, created, id) => {
+const createPostContent = (title, body, tags, media, created, id, comments) => {
   const element = createElement("div");
   if (media) {
     const img = createElement("img", ["py-2", "post-img"], undefined, undefined, undefined, media);
@@ -40,7 +39,7 @@ const createPostContent = (title, body, tags, media, created, id) => {
 
   const headingContainer = createHeadingContainer(title, created);
   const p = createElement("p", ["text-muted"], undefined, body);
-  const commentsContainer = createCommentsContainer(id);
+  const commentsContainer = createCommentsContainer(id, comments);
 
   element.append(headingContainer, p, commentsContainer);
   return element;
