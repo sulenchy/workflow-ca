@@ -1,6 +1,6 @@
 import { createElement } from "./createHtmlFunction.js";
 import { parseDate } from "../../parse/parse.js";
-import { createCommentsContainer } from "./comments.js";
+import { createCommentsContainer } from "./createComments.js";
 
 const postContainer = document.getElementById("posts-container");
 console.log(postContainer);

@@ -14,3 +14,15 @@
     border-radius: 5px;
   }
 }
+
+.create-post_container {
+  svg {
+    width: 30px;
+    cursor: pointer;
+  }
+  input,
+  textarea {
+    border: 0;
+    box-shadow: none;
+  }
+}
