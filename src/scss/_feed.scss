@@ -25,4 +25,9 @@
     border: 0;
     box-shadow: none;
   }
+
+  input:focus,
+  textarea:focus {
+    box-shadow: none;
+  }
 }
