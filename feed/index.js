@@ -5,12 +5,15 @@ import { HandleSubmitPost } from "../js/posts/submitPosts.js";
 import { fetchImgUrl } from "../js/functions/fetchImgUrl.js";
 
 const form = document.getElementById("post-form");
-form.addEventListener("submit", HandleSubmitPost);
+form.addEventListener("submit", (e) => {
+  HandleSubmitPost(e);
+  form.reset();
+});
 
 const imgBtn = document.getElementById("img-btn");
 imgBtn.addEventListener("click", fetchImgUrl);
 
-const fetchPosts = async () => {
+export const fetchPosts = async () => {
   const token = fetchLocalStorage("token");
   const result = await apiCall(`social/posts?_author=true&_comments=true&_reactions=true`, "get", undefined, `bearer ${token}`);
   renderPosts(result);

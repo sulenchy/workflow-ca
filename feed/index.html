@@ -52,7 +52,7 @@
         <form action="get" id="post-form">
           <div class="mb-3 bg-white border border-gray">
             <input type="title" class="form-control border-white fw-bold" id="exampleFormControlInput1" placeholder="Title" />
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Share your thoughts"></textarea>
+            <textarea type="body" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Share your thoughts"></textarea>
             <div id="imgUrl-container" class="p-2">
               <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-image" id="img-btn" viewBox="0 0 16 16">
                 <path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
@@ -65,7 +65,7 @@
           <button class="btn btn-info">Post</button>
         </form>
       </section>
-      <section class="container">
+      <section class="container search-container" id="posts-search_container">
         <h1 class="text-primary fs-2">Friendly post`s</h1>
         <div class="d-flex flex-column flex-sm-row justify-content-between">
           <div class="dropdown">
@@ -86,7 +86,7 @@
         <div class="border-bottom border-primary mb-3"></div>
       </section>
       <section class="container" id="posts-container">
-        <div class="post p-3 mb-3 bg-white">
+        <!-- <div class="post p-3 mb-3 bg-white">
           <div class="d-flex align-items-center pb-2 border-bottom border-primary">
             <img src="../images/profile.jpg" alt="girl" />
             <h2 class="text-primary fs-6 fw-bold ps-2 pt-2">Sofia Mitchell</h2>
@@ -102,7 +102,7 @@
               <button class="btn btn-info">Comments</button>
             </div>
           </div>
-        </div>
+        </div> -->
       </section>
     </main>
     <footer class="mt-auto d-flex flex-wrap justify-content-around align-items-center py-3 border-top border-primary bg-secondary">
