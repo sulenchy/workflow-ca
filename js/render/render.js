@@ -4,11 +4,6 @@ import { createCommentForm, createComment, displayCommentMsg } from "./createHtm
 import { handleCommentSubmit } from "../comments/postComments.js";
 import { createElement } from "./createHtml/createHtmlFunction.js";
 
-export const renderProfile = ({ name, email, avatar, _count }) => {
-  createProfileInfo(name, email, avatar);
-  createFeedBtnInfo(_count);
-};
-
 export const renderPosts = (posts) => {
   posts.forEach(createPosts);
 };
@@ -38,4 +33,9 @@ const renderComment = (data) => {
   const container = document.querySelector(".commentsContainer");
   const comment = createComment(data);
   container.append(comment);
+};
+
+export const renderProfile = ({ name, email, avatar, _count }) => {
+  createProfileInfo(name, email, avatar);
+  createFeedBtnInfo(_count);
 };

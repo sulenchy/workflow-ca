@@ -20,6 +20,7 @@ export const createCommentsContainer = (id, comments) => {
 export const createCommentForm = (id) => {
   const element = createElement("form");
   element.action = "post";
+
   const label = createElement("label", ["form-label", "fs2", "mt-2", "mb-0"], undefined, "Write Comment");
   label.for = "exampleFormControlTextarea1";
 

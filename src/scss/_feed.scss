@@ -15,7 +15,7 @@
   }
 }
 
-.create-post_container {
+.post-form {
   svg {
     width: 30px;
     cursor: pointer;
@@ -40,4 +40,12 @@
   li {
     cursor: pointer;
   }
+}
+
+.edit-modal {
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 40%;
 }

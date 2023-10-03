@@ -12,6 +12,7 @@ export const apiCall = async (url, method, data, authorization) => {
       },
       body: data,
     });
+
     const result = await response.json();
 
     return result;
