@@ -45,7 +45,7 @@ const createPostAuthor = ({ name, avatar }, id, title, body, media) => {
 };
 
 const createPostContent = (title, body, media, created, id, comments) => {
-  const element = createElement("div");
+  const element = createElement("div", ["post-content"]);
   if (media) {
     const img = createElement("img", ["py-2", "post-img"], undefined, undefined, undefined, media);
     element.append(img);

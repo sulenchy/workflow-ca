@@ -10,8 +10,10 @@
     max-width: 60px;
   }
   .post-img {
-    max-width: 100%;
+    min-width: 100%;
     border-radius: 5px;
+    max-height: 500px;
+    object-fit: cover;
   }
 }
 

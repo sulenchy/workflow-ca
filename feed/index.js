@@ -4,6 +4,7 @@ import { renderPosts } from "../js/render/render.js";
 import { HandleSubmitPost } from "../js/posts/submitPosts.js";
 import { fetchImgUrl } from "../js/functions/fetchImgUrl.js";
 import { fetchPost } from "../js/posts/viewSpecificPost.js";
+import { getUrlId } from "../js/functions/getUrlId.js";
 
 const form = document.getElementById("post-form");
 form.addEventListener("submit", (e) => {
@@ -21,10 +22,7 @@ export const fetchPosts = async () => {
 };
 
 const checkId = () => {
-  const queryString = document.location.search;
-  const params = new URLSearchParams(queryString);
-  const id = params.get("id");
-
+  const id = getUrlId();
   if (id) {
     fetchPost(id);
     return;
