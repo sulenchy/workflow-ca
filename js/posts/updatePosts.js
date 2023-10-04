@@ -1,12 +1,12 @@
-import { fetchPosts } from "../../feed/index.js";
+import { fetchPosts } from "./fetch.js";
 
 export const updatePostsSection = () => {
   const postsContainer = document.getElementById("posts-container");
   postsContainer.innerHTML = ``;
 
-  setTimeout(() => {
-    fetchPosts();
-  }, 300);
+  // setTimeout(() => {
+  //   fetchPosts();
+  // }, 300);
 
   setTimeout(() => {
     scrollToPosts();

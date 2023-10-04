@@ -38,10 +38,8 @@
   scroll-margin-top: 5.4em;
 }
 
-.post {
-  li {
-    cursor: pointer;
-  }
+li {
+  cursor: pointer;
 }
 
 .edit-modal {
@@ -50,4 +48,8 @@
   transform: translateX(-50%);
   width: 60%;
   height: 40%;
+}
+
+#option {
+  font-family: Arial, Helvetica, sans-serif;
 }
