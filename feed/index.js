@@ -22,7 +22,7 @@ const displayPosts = async () => {
     const posts = await fetchPosts();
     renderPosts(posts);
     filterPosts(posts);
-    search(posts);
+    search();
   } catch (error) {
     console.log(error);
   }

@@ -3,6 +3,9 @@ import { createPosts } from "./createHtml/createPosts.js";
 import { createCommentForm, createComment, displayCommentMsg } from "./createHtml/createComments.js";
 import { handleCommentSubmit } from "../comments/postComments.js";
 import { createElement } from "./createHtml/createHtmlFunction.js";
+import { createUserCard } from "./createHtml/createUsers.js";
+
+const postContainer = document.getElementById("posts-container");
 
 export const renderPosts = (posts) => {
   posts.forEach(createPosts);
@@ -38,4 +41,15 @@ const renderComment = (data) => {
 export const renderProfile = ({ name, email, avatar, _count }) => {
   createProfileInfo(name, email, avatar);
   createFeedBtnInfo(_count);
+};
+
+export const renderUsers = (users) => {
+  users.forEach(renderUser);
+};
+
+const renderUser = ({ name, email, avatar, _count }) => {
+  const userCard = createUserCard(name, email, avatar, _count);
+  postContainer.classList.add("d-flex", "flex-wrap", "justify-content-center");
+
+  postContainer.append(userCard);
 };
