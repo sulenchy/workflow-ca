@@ -7,6 +7,8 @@ import { createPosts } from "../js/render/createHtml/createPosts.js";
 import { adjustingPageContent } from "../js/posts/viewSpecificPost.js";
 import { filterPosts } from "../js/functions/filterFunctionality.js";
 import { search } from "../js/functions/searchFunctionality.js";
+import { updatePostsSection } from "../js/posts/updatePosts.js";
+import { toggleBtnClass } from "../js/functions/toggleBtnClass.js";
 
 const form = document.getElementById("post-form");
 form.addEventListener("submit", (e) => {
@@ -17,9 +19,19 @@ form.addEventListener("submit", (e) => {
 const imgBtn = document.getElementById("img-btn");
 imgBtn.addEventListener("click", fetchImgUrl);
 
-const displayPosts = async () => {
+const followBtn = document.getElementById("followingBtn");
+followBtn.addEventListener("click", () => {
+  feedBtnHandler("following");
+});
+
+const allPostsBtn = document.getElementById("allPostsBtn");
+allPostsBtn.addEventListener("click", () => {
+  feedBtnHandler();
+});
+
+const displayPosts = async (value) => {
   try {
-    const posts = await fetchPosts();
+    const posts = await fetchPosts(value);
     renderPosts(posts);
     filterPosts(posts);
     search();
@@ -45,7 +57,18 @@ const checkHrefId = () => {
     displayPost(id);
     return;
   }
-  displayPosts();
+  displayPosts(``);
 };
 
 checkHrefId();
+
+const feedBtnHandler = (value) => {
+  toggleBtnClass();
+  updatePostsSection();
+
+  if (value) {
+    displayPosts(`following`);
+  } else {
+    displayPosts(``);
+  }
+};

@@ -4,8 +4,8 @@ import { apiCall } from "../api/api.js";
 
 const token = fetchLocalStorage("token");
 
-export const fetchPosts = async (filter) => {
-  const result = await apiCall(`social/posts/?_author=true&_comments=true&_reactions=true${filter}`, "get", undefined, `bearer ${token}`);
+export const fetchPosts = async (following, filter) => {
+  const result = await apiCall(`social/posts/${following}?_author=true&_comments=true&_reactions=true${filter}`, "get", undefined, `bearer ${token}`);
   return result;
 };
 
