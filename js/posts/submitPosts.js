@@ -18,8 +18,7 @@ const submitPost = async (title, body, media) => {
     });
     const token = fetchLocalStorage("token");
     apiCall("social/posts", "post", data, `bearer ${token}`);
-
-    updatePostsSection();
+    updatePostsSection("post");
   } catch (error) {
     console.log(error);
   }

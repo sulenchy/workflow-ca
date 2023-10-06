@@ -1,7 +1,14 @@
 import { createElement } from "./createHtmlFunction.js";
+const postContainer = document.getElementById("posts-container");
+
+export const createUserCardContainer = () => {
+  const element = createElement("div", ["d-flex", "flex-wrap"]);
+  element.id = "userCardsContainer";
+  postContainer.append(element);
+};
 
 export const createUserCard = (name, email, avatar, _count) => {
-  const element = createElement("div", ["card", "m-1", "border", "border-primary"]);
+  const element = createElement("a", ["card", "m-1", "border", "border-primary"], undefined, undefined, `../../profile/index.html?id=${name}`);
 
   const cardBody = createCardBody(name, email, avatar, _count);
 
@@ -13,8 +20,13 @@ export const createUserCard = (name, email, avatar, _count) => {
 const createCardBody = (name, email, avatar, _count) => {
   const element = createElement("div", ["card-body"]);
   const userInfo = createUserInfoContainer(name, email, avatar);
-  const userStats = createUserStats(_count);
-  element.append(userInfo, userStats);
+
+  element.append(userInfo);
+
+  if (_count) {
+    const userStats = createUserStats(_count);
+    element.append(userStats);
+  }
 
   return element;
 };

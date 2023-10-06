@@ -15,7 +15,7 @@ export const checkEditPost = (author) => {
 
 export const deletePost = async (id) => {
   apiCall(`social/posts/${id}`, "delete", undefined, `bearer ${token}`);
-  updatePostsSection();
+  updatePostsSection("posts");
 };
 
 export const editPost = (id, title, body, media) => {
@@ -44,7 +44,7 @@ const putPost = async (id, title, body, media) => {
     }
 
     closeModal();
-    updatePostsSection();
+    updatePostsSection("posts");
   } catch (error) {
     console.log(error);
   }

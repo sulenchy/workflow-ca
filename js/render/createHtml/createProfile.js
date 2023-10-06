@@ -24,8 +24,8 @@ export const createFeedBtnInfo = ({ posts, followers, following }) => {
 
   btnsArray.forEach((btn, i) => {
     changeBtnInnerText(btn, i, 0, posts);
-    changeBtnInnerText(btn, i, 1, followers);
-    changeBtnInnerText(btn, i, 2, following);
+    changeBtnInnerText(btn, i, 1, following);
+    changeBtnInnerText(btn, i, 2, followers);
   });
 };
 

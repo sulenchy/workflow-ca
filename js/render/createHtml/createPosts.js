@@ -22,7 +22,6 @@ export const createPosts = ({ author, title, body, media, created, id, comments 
 
 const createPostAuthor = ({ name, avatar }, id, title, body, media) => {
   const element = createElement("div", ["d-flex", "align-items-center", "justify-content-between", "pb-2", "border-bottom", "border-primary"]);
-  const div = createElement("div", ["d-flex", "align-items-center"]);
   const img = createElement("img", undefined, undefined, undefined, undefined, name);
 
   if (avatar) {
@@ -30,11 +29,11 @@ const createPostAuthor = ({ name, avatar }, id, title, body, media) => {
   } else {
     img.src = "../images/profile.jpg";
   }
-
   const h2 = createElement("h2", ["text-primary", "fs-6", "fw-bold", "ps-2", "pt-2"], undefined, name);
-  div.append(img, h2);
 
-  element.append(div);
+  const anchorContainer = createElement("a", ["d-flex", "align-items-center"], [img, h2], undefined, `../../profile/index.html?id=${name}`);
+
+  element.append(anchorContainer);
 
   if (checkEditPost(name)) {
     const editBtn = createEditBtn(id, title, body, media);
