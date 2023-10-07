@@ -1,5 +1,4 @@
-import { renderPosts } from "../render/render.js";
-import { getRequest } from "../api/get.js";
+import { displayPosts } from "./displayPosts.js";
 
 export const updatePostsSection = (value, url) => {
   const postsContainer = document.getElementById("posts-container");
@@ -8,7 +7,7 @@ export const updatePostsSection = (value, url) => {
 
   setTimeout(() => {
     if (value === "posts") {
-      refetchPosts(url);
+      displayPosts(url);
       console.log("working");
     }
     scrollToPosts();
@@ -18,15 +17,4 @@ export const updatePostsSection = (value, url) => {
 const scrollToPosts = () => {
   const postsSearchSection = document.getElementById("posts-search_container");
   postsSearchSection.scrollIntoView();
-};
-
-const refetchPosts = async (url) => {
-  try {
-    console.log(url);
-    const posts = await getRequest(url);
-    console.log(posts);
-    renderPosts(posts);
-  } catch (error) {
-    console.log(error);
-  }
 };

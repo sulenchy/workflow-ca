@@ -3,7 +3,7 @@ import { fetchLocalStorage } from "../js/localStorage/localStorage.js";
 import { renderPosts } from "../js/render/render.js";
 import { filterPosts } from "../js/utils/filterFunctionality.js";
 import { search } from "../js/utils/searchFunctionality.js";
-import { updatePostsSection } from "../js/posts/updatePosts.js";
+import { updatePostsSection } from "../js/posts/updatePostsContainer.js";
 import { getRequest } from "../js/api/get.js";
 import { createProfileId } from "../js/utils/getUrlId.js";
 import { dynamicH2Change } from "../js/utils/dynamicHeaderChange.js";

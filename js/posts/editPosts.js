@@ -1,6 +1,6 @@
 import { fetchLocalStorage } from "../localStorage/localStorage.js";
 import { apiCall } from "../api/api.js";
-import { updatePostsSection } from "./updatePosts.js";
+import { updatePostsSection } from "./updatePostsContainer.js";
 import { createEditModal } from "../render/createHtml/createEditModal.js";
 import { deleteRequest } from "../api/delete.js";
 import { apiUrls } from "../api/constant.js";

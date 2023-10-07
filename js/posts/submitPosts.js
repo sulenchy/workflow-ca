@@ -1,4 +1,4 @@
-import { updatePostsSection } from "./updatePosts.js";
+import { updatePostsSection } from "./updatePostsContainer.js";
 import { postRequest } from "../api/post.js";
 import { apiUrls } from "../api/constant.js";
 

@@ -1,5 +1,5 @@
 import { renderPosts } from "../render/render.js";
-import { updatePostsSection } from "../posts/updatePosts.js";
+import { updatePostsSection } from "../posts/updatePostsContainer.js";
 import { getRequest } from "../api/get.js";
 import { renderUsers } from "../render/render.js";
 import { apiUrls } from "../api/constant.js";

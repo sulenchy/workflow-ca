@@ -5,6 +5,8 @@ import { changeSearchElements } from "../js/utils/changeSearchElements.js";
 import { apiUrls } from "../js/api/constant.js";
 import { displayPosts, displayPost } from "../js/posts/displayPosts.js";
 import { feedBtnHandler } from "../js/utils/feedBtnHandler.js";
+import { search } from "../js/utils/searchFunctionality.js";
+import { adjustingPageContent } from "../js/posts/viewSpecificPost.js";
 
 const form = document.getElementById("post-form");
 form.addEventListener("submit", (e) => {
@@ -33,8 +35,10 @@ const renderPageContent = async () => {
   try {
     if (id) {
       const result = await displayPost();
+      adjustingPageContent();
     } else {
       const result = await displayPosts(apiUrls.followed_posts);
+      search();
     }
   } catch (error) {
     console.log(error);
