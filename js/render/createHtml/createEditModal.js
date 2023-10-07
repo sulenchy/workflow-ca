@@ -1,5 +1,5 @@
 import { createElement } from "./createHtmlFunction.js";
-import { createImgInput } from "../../functions/fetchImgUrl.js";
+import { createImgInput } from "../../utils/fetchImgUrl.js";
 
 export const createEditModal = (title, body, media) => {
   const main = document.querySelector("main");

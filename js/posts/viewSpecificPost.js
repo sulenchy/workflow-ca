@@ -1,4 +1,4 @@
-import { getUrlId } from "../functions/getUrlId.js";
+import { getUrlId } from "../utils/getUrlId.js";
 
 export const viewPost = (postId) => {
   const id = getUrlId();

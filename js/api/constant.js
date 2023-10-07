@@ -1,4 +1,4 @@
-import { createProfileId } from "../functions/getUrlId.js";
+import { createProfileId } from "../utils/getUrlId.js";
 const id = createProfileId();
 
 const baseUrl = "https://api.noroff.dev/api/v1/";
