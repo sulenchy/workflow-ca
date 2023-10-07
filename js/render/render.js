@@ -6,8 +6,6 @@ import { createElement } from "./createHtml/createHtmlFunction.js";
 import { createUserCard } from "./createHtml/createUsers.js";
 import { createUserCardContainer } from "./createHtml/createUsers.js";
 
-const postContainer = document.getElementById("posts-container");
-
 export const renderPosts = (posts) => {
   posts.forEach(createPosts);
 };

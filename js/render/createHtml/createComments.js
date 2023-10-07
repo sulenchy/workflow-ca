@@ -1,6 +1,6 @@
 import { createElement } from "./createHtmlFunction.js";
-import { displayCommentsSection } from "../../comments/displayComments.js";
 import { parseDate } from "../../parse/parse.js";
+import { renderCommentSection } from "../render.js";
 
 export const createCommentsContainer = (id, comments) => {
   const element = createElement("div");
@@ -9,7 +9,7 @@ export const createCommentsContainer = (id, comments) => {
   const commentBtn = createElement("button", ["btn", "btn-info", "comment-btn"], undefined, "Comments");
 
   commentBtn.addEventListener("click", () => {
-    displayCommentsSection(id, comments);
+    renderCommentSection(id, comments);
     commentBtn.style.display = "none";
   });
 

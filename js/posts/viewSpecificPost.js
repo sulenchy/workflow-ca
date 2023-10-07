@@ -11,9 +11,7 @@ export const viewPost = (postId) => {
 
 export const adjustingPageContent = () => {
   const createPostContainer = document.querySelector(".create-post_container");
-  const searchContainer = document.getElementById("posts-search_container");
   createPostContainer.remove();
-  searchContainer.remove();
 
   const main = document.querySelector("main");
   main.style.height = "100vh";

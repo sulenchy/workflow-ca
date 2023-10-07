@@ -1,12 +1,12 @@
-export const toggleBtnClass = () => {
+export const toggleBtnClass = (id) => {
+  console.log(id);
   const btnContainer = document.getElementById("feed-btn-container");
   const btnArray = Object.values(btnContainer.children);
-  console.log(btnArray);
   btnArray.forEach((btn) => {
-    if (btn.classList.contains("active")) {
-      btn.classList.remove("active");
-    } else {
+    if (btn.id === id) {
       btn.classList.add("active");
+    } else {
+      btn.classList.remove("active");
     }
   });
 };

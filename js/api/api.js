@@ -1,10 +1,12 @@
-import { baseUrl } from "./constant.js";
+import { fetchLocalStorage } from "../localStorage/localStorage.js";
 
-export const apiCall = async (url, method, data, authorization) => {
+const token = fetchLocalStorage("token");
+
+export const apiCall = async (url, method, data) => {
+  const authorization = ` bearer ${token}`;
+
   try {
-    const newUrl = baseUrl + url;
-
-    const response = await fetch(newUrl, {
+    const response = await fetch(url, {
       method: method,
       headers: {
         "Content-type": "application/json",

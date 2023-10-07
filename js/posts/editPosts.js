@@ -2,8 +2,8 @@ import { fetchLocalStorage } from "../localStorage/localStorage.js";
 import { apiCall } from "../api/api.js";
 import { updatePostsSection } from "./updatePosts.js";
 import { createEditModal } from "../render/createHtml/createEditModal.js";
-
-const token = fetchLocalStorage("token");
+import { deleteRequest } from "../api/delete.js";
+import { apiUrls } from "../api/constant.js";
 
 export const checkEditPost = (author) => {
   const name = fetchLocalStorage("name");
@@ -14,8 +14,15 @@ export const checkEditPost = (author) => {
 };
 
 export const deletePost = async (id) => {
-  apiCall(`social/posts/${id}`, "delete", undefined, `bearer ${token}`);
-  updatePostsSection("posts");
+  const currentPage = location.href;
+
+  deleteRequest(`${apiUrls.posts_Url}/${id}`, "delete");
+
+  if (currentPage.match(`/feed/`)) {
+    updatePostsSection("posts", apiUrls.posts_Parameter);
+  } else if (currentPage.match(`/profile/`)) {
+    updatePostsSection("posts", apiUrls.profile_Posts_Parameter);
+  }
 };
 
 export const editPost = (id, title, body, media) => {

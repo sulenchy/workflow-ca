@@ -1,6 +1,6 @@
-import { apiCall } from "../api/api.js";
-import { fetchLocalStorage } from "../localStorage/localStorage.js";
 import { updatePostsSection } from "./updatePosts.js";
+import { postRequest } from "../api/post.js";
+import { apiUrls } from "../api/constant.js";
 
 export const HandleSubmitPost = (event) => {
   event.preventDefault();
@@ -16,9 +16,9 @@ const submitPost = async (title, body, media) => {
       body: body.value,
       media: media.value,
     });
-    const token = fetchLocalStorage("token");
-    apiCall("social/posts", "post", data, `bearer ${token}`);
-    updatePostsSection("post");
+
+    postRequest(apiUrls.posts_Url, data);
+    updatePostsSection("posts", apiUrls.posts_Parameter);
   } catch (error) {
     console.log(error);
   }

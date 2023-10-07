@@ -1,15 +1,15 @@
-const container = document.getElementById("imgUrl-container");
+import { createElement } from "../render/createHtml/createHtmlFunction.js";
 
 export const fetchImgUrl = () => {
   checkImgInput();
 };
 
-export const renderImgInput = () => {
+const renderImgInput = () => {
+  const container = document.getElementById("imgUrl-container");
   const input = createImgInput();
   container.append(input);
 };
 
-import { createElement } from "../render/createHtml/createHtmlFunction.js";
 export const createImgInput = () => {
   const element = createElement("input", ["form-control", "mt-1", "border", "border-dark", "img-input"]);
   element.type = "url";

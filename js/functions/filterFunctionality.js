@@ -1,6 +1,7 @@
 import { renderPosts } from "../render/render.js";
 import { updatePostsSection } from "../posts/updatePosts.js";
-import { fetchPosts } from "../posts/fetch.js";
+import { getRequest } from "../api/get.js";
+import { apiUrls } from "../api/constant.js";
 
 const newestPostsBtn = document.getElementById("newestPosts");
 const updatedPostsBtn = document.getElementById("updatedPosts");
@@ -34,7 +35,8 @@ const displayUpdatedPosts = (posts) => {
 };
 
 const displayActivePosts = async () => {
-  const activePosts = await fetchPosts(`&_active=true`);
+  const activePosts = await getRequest(apiUrls.active_Posts_Url);
+  console.log(activePosts);
   updatePostsSection();
   renderPosts(activePosts);
 };
