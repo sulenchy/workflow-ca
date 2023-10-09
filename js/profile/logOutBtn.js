@@ -1,4 +1,4 @@
-import { getUrlId } from "../utils/getUrlId.js";
+import { getUrlId } from "../utils/queryParam.js";
 
 export const logOuTbTN = () => {
   const id = getUrlId();

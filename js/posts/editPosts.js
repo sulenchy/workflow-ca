@@ -16,7 +16,7 @@ export const checkEditPost = (author) => {
 export const deletePost = async (id) => {
   const currentPage = location.href;
 
-  deleteRequest(`${apiUrls.posts_Url}/${id}`, "delete");
+  deleteRequest(`${apiUrls.posts_Url}/${id}`);
 
   if (currentPage.match(`/feed/`)) {
     updatePostsSection("posts", apiUrls.posts_Parameter);
@@ -44,14 +44,18 @@ const putPost = async (id, title, body, media) => {
       media: media.value,
     });
 
-    const response = await apiCall(`social/posts/${id}as`, "put", data, `bearer 5454`);
+    const response = await apiCall(apiUrls.posts_Url + `/${id}`, "put", data);
 
-    if (response.ok) {
-      console.log(response);
-    }
+    console.log(response);
 
     closeModal();
-    updatePostsSection("posts");
+
+    const currentPage = location.href;
+    if (currentPage.match(`/feed/`)) {
+      updatePostsSection("posts", apiUrls.posts_Parameter);
+    } else if (currentPage.match(`/profile/`)) {
+      updatePostsSection("posts", apiUrls.profile_Posts_Parameter);
+    }
   } catch (error) {
     console.log(error);
   }

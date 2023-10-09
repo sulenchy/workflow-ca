@@ -1,6 +1,6 @@
 import { HandleSubmitPost } from "../js/posts/submitPosts.js";
 import { fetchImgUrl } from "../js/utils/fetchImgUrl.js";
-import { getUrlId } from "../js/utils/getUrlId.js";
+import { getUrlId, updateHref } from "../js/utils/queryParam.js";
 import { changeSearchElements } from "../js/utils/changeSearchElements.js";
 import { apiUrls } from "../js/api/constant.js";
 import { displayPosts, displayPost } from "../js/posts/displayPosts.js";
@@ -21,6 +21,7 @@ const followBtn = document.getElementById("followingBtn");
 followBtn.addEventListener("click", () => {
   const id = followBtn.id;
   feedBtnHandler("following", id);
+  updateHref();
 });
 
 const allPostsBtn = document.getElementById("allPostsBtn");
@@ -28,17 +29,18 @@ allPostsBtn.addEventListener("click", () => {
   const id = allPostsBtn.id;
   feedBtnHandler(undefined, id);
   changeSearchElements();
+  updateHref();
 });
 
 const renderPageContent = async () => {
   const id = getUrlId();
+  search();
   try {
     if (id) {
-      const result = await displayPost();
+      displayPost();
       adjustingPageContent();
     } else {
-      const result = await displayPosts(apiUrls.followed_posts);
-      search();
+      displayPosts(apiUrls.followed_posts);
     }
   } catch (error) {
     console.log(error);

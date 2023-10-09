@@ -1,4 +1,4 @@
-import { getUrlId } from "../utils/getUrlId.js";
+import { getUrlId } from "../utils/queryParam.js";
 
 export const viewPost = (postId) => {
   const id = getUrlId();
@@ -14,6 +14,6 @@ export const adjustingPageContent = () => {
   createPostContainer.remove();
 
   const main = document.querySelector("main");
-  main.style.height = "100vh";
+  main.style.minHeight = "100vh";
   main.style.paddingTop = "50px";
 };

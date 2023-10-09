@@ -1,5 +1,4 @@
 export const toggleBtnClass = (id) => {
-  console.log(id);
   const btnContainer = document.getElementById("feed-btn-container");
   const btnArray = Object.values(btnContainer.children);
   btnArray.forEach((btn) => {

@@ -1,20 +1,18 @@
 import { renderProfile, renderUsers } from "../js/render/render.js";
-import { fetchLocalStorage } from "../js/localStorage/localStorage.js";
 import { renderPosts } from "../js/render/render.js";
 import { filterPosts } from "../js/utils/filterFunctionality.js";
 import { search } from "../js/utils/searchFunctionality.js";
 import { updatePostsSection } from "../js/posts/updatePostsContainer.js";
 import { getRequest } from "../js/api/get.js";
-import { createProfileId } from "../js/utils/getUrlId.js";
+import { createProfileId, getUrlId } from "../js/utils/queryParam.js";
 import { dynamicH2Change } from "../js/utils/dynamicHeaderChange.js";
 import { toggleBtnClass } from "../js/utils/toggleBtnClass.js";
 import { changeSearchElements } from "../js/utils/changeSearchElements.js";
-import { checkResult } from "../js/utils/resultMsg.js";
-import { suggestUsers } from "../js/utils/suggestUsers.js";
+import { checkResult } from "../js/utils/suggestUsers.js";
 import { logOuTbTN } from "../js/profile/logOutBtn.js";
 import { apiUrls } from "../js/api/constant.js";
+import { displayPosts } from "../js/posts/displayPosts.js";
 
-const token = fetchLocalStorage("token");
 const profileId = createProfileId();
 const postBtn = document.getElementById("postsBtn");
 const followersBtn = document.getElementById("followersBtn");
@@ -35,9 +33,15 @@ followingBtn.addEventListener("click", () => {
   upDateFeedContent(displayFollowers, "following", id);
 });
 
-const displayProfile = async (token) => {
+const upDateFeedContent = (renderFunction, value, id) => {
+  toggleBtnClass(id);
+  renderFunction(value);
+  updatePostsSection();
+};
+
+const displayProfile = async () => {
   try {
-    const profile = await getRequest(apiUrls.profile_Parameter, token);
+    const profile = await getRequest(apiUrls.profile_Parameter);
     renderProfile(profile);
     logOuTbTN();
   } catch (error) {
@@ -47,41 +51,24 @@ const displayProfile = async (token) => {
 
 const displayUserPosts = async () => {
   try {
-    search();
     dynamicH2Change(`${profileId}s latest posts:`);
     changeSearchElements();
-
-    const posts = await getRequest(apiUrls.profile_Posts_Parameter, token);
-    checkResult(posts, `Nothing has been posted yet`);
-    renderPosts(posts);
-    filterPosts(posts);
+    displayPosts(apiUrls.profile_Posts_Parameter);
   } catch (error) {
     console.log(error);
   }
 };
 const displayFollowers = async (value) => {
-  const { followers, following } = await getRequest(apiUrls.profile_Parameter, token);
+  const { followers, following } = await getRequest(apiUrls.profile_Parameter);
   if (value === "followers") {
-    checkResult(followers, `You do not have any  followers yet`);
-    renderUsers(followers);
-    dynamicH2Change(`${profileId}s ${value}:`);
+    checkResult(followers, renderUsers, `do not have any  followers yet`);
   } else if (value === "following") {
-    if (following.length <= 0) {
-      suggestUsers();
-      return;
-    }
-    renderUsers(following);
-    dynamicH2Change(`${profileId}s ${value}:`);
+    checkResult(following, renderUsers, `do not  follow anybody yet`);
   }
-
+  dynamicH2Change(`${profileId}s ${value}:`);
   changeSearchElements();
 };
 
-displayUserPosts(profileId);
-displayProfile(token);
-
-const upDateFeedContent = (renderFunction, value, id) => {
-  toggleBtnClass(id);
-  updatePostsSection();
-  renderFunction(value);
-};
+displayProfile();
+displayUserPosts();
+search();
