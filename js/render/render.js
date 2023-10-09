@@ -1,7 +1,7 @@
 import { createProfileInfo, createFeedBtnInfo } from "./createHtml/createProfile.js";
 import { createPosts } from "./createHtml/createPosts.js";
 import { createCommentForm, createComment, displayCommentMsg } from "./createHtml/createComments.js";
-import { handleCommentSubmit } from "../comments/postComments.js";
+import { handleCommentSubmit } from "../posts/comments/postComments.js";
 import { createElement } from "./createHtml/createHtmlFunction.js";
 import { createUserCard } from "./createHtml/createUsers.js";
 import { createUserCardContainer } from "./createHtml/createUsers.js";

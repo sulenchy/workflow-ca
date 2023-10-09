@@ -1,15 +1,13 @@
 import { renderProfile, renderUsers } from "../js/render/render.js";
-import { renderPosts } from "../js/render/render.js";
-import { filterPosts } from "../js/utils/filterFunctionality.js";
 import { search } from "../js/utils/searchFunctionality.js";
 import { updatePostsSection } from "../js/posts/updatePostsContainer.js";
 import { getRequest } from "../js/api/get.js";
-import { createProfileId, getUrlId } from "../js/utils/queryParam.js";
+import { createProfileId } from "../js/utils/queryParam.js";
 import { dynamicH2Change } from "../js/utils/dynamicHeaderChange.js";
 import { toggleBtnClass } from "../js/utils/toggleBtnClass.js";
 import { changeSearchElements } from "../js/utils/changeSearchElements.js";
 import { checkResult } from "../js/utils/suggestUsers.js";
-import { logOuTbTN } from "../js/profile/logOutBtn.js";
+import { logOuTbTN } from "../js/utils/logOutBtn.js";
 import { apiUrls } from "../js/api/constant.js";
 import { displayPosts } from "../js/posts/displayPosts.js";
 

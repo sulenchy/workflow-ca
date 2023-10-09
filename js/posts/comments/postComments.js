@@ -1,5 +1,5 @@
-import { fetchLocalStorage } from "../localStorage/localStorage.js";
-import { apiCall } from "../api/api.js";
+import { fetchLocalStorage } from "../../localStorage/localStorage.js";
+import { apiCall } from "../../api/api.js";
 
 export const handleCommentSubmit = (id) => {
   event.preventDefault();
