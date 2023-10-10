@@ -48,6 +48,8 @@ li {
   left: 50%;
   transform: translateX(-50%);
   width: 60%;
+  min-width: 290px;
+  z-index: 1000;
   height: 40%;
 }
 

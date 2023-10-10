@@ -2,18 +2,26 @@ import { fetchLocalStorage } from "../localStorage/localStorage.js";
 
 const token = fetchLocalStorage("token");
 
-export const apiCall = async (url, method, data) => {
+export const apiCall = async (url, method, data, noBody) => {
   const authorization = ` bearer ${token}`;
 
+  const fetchOptions = {
+    method: method,
+
+    headers: {
+      "Content-type": "application/json",
+      Authorization: authorization,
+    },
+
+    body: data,
+  };
+
+  if (noBody) {
+    delete fetchOptions.headers["Content-type"];
+  }
+
   try {
-    const response = await fetch(url, {
-      method: method,
-      headers: {
-        "Content-type": "application/json",
-        Authorization: authorization,
-      },
-      body: data,
-    });
+    const response = await fetch(url, fetchOptions);
 
     const result = await response.json();
 

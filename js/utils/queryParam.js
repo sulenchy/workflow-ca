@@ -1,6 +1,6 @@
 import { fetchLocalStorage } from "../localStorage/localStorage.js";
 
-export const getUrlId = () => {
+export const getQueryParamId = () => {
   const queryString = document.location.search;
   const params = new URLSearchParams(queryString);
   const id = params.get("id");
@@ -10,7 +10,7 @@ export const getUrlId = () => {
 
 export const createProfileId = () => {
   let profileId = ``;
-  const id = getUrlId();
+  const id = getQueryParamId();
   const name = fetchLocalStorage("name");
 
   if (id) {

@@ -1,14 +1,19 @@
-import { displayPosts } from "../posts/displayPosts.js";
-import { apiUrls } from "../api/constant.js";
-import { toggleBtnClass } from "./toggleBtnClass.js";
-import { updatePostsSection } from "../posts/updatePostsContainer.js";
+import { updatePostsSection } from "./updatePostsContainer.js";
 
-export const feedBtnHandler = (value, id) => {
+export const feedBtnHandler = (renderFunction, value, id) => {
   toggleBtnClass(id);
-  if (value) {
-    displayPosts(apiUrls.followed_posts);
-  } else {
-    displayPosts(apiUrls.posts_Parameter);
-  }
+  renderFunction(value);
   updatePostsSection();
+};
+
+const toggleBtnClass = (id) => {
+  const btnContainer = document.getElementById("feed-btn-container");
+  const btnArray = Object.values(btnContainer.children);
+  btnArray.forEach((btn) => {
+    if (btn.id === id) {
+      btn.classList.add("active");
+    } else {
+      btn.classList.remove("active");
+    }
+  });
 };

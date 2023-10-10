@@ -1,6 +1,6 @@
-import { updatePostsSection } from "./updatePostsContainer.js";
-import { postRequest } from "../api/post.js";
+import { updatePostsSection } from "../utils/updatePostsContainer.js";
 import { apiUrls } from "../api/constant.js";
+import { apiCall } from "../api/api.js";
 
 export const HandleSubmitPost = (event) => {
   event.preventDefault();
@@ -16,8 +16,11 @@ const submitPost = async (title, body, media) => {
       body: body.value,
       media: media.value,
     });
-
-    postRequest(apiUrls.posts_Url, data);
+    const { errors } = await apiCall(apiUrls.posts_Url, "post", data);
+    if (errors) {
+      console.log(errors);
+      alert(`Ops something went wrong :(    ${errors[0].message} `);
+    }
     updatePostsSection("posts", apiUrls.posts_Parameter);
   } catch (error) {
     console.log(error);

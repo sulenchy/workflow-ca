@@ -15,7 +15,6 @@ export const createEditModal = (title, body, media) => {
   const div = createElement("div", ["d-flex", "justify-content-between"], [p, closeBtn]);
 
   const modal = createElement("div", ["edit-modal", "position-fixed", "bg-white", "p-3", "border", "border-primary"], [div, form]);
-
   main.append(modal);
 
   return form;

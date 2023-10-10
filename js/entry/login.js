@@ -1,7 +1,7 @@
 import { displayMessage } from "./entryMessage.js";
 import { setLocalStorage } from "../localStorage/localStorage.js";
 import { apiUrls } from "../api/constant.js";
-import { postRequest } from "../api/post.js";
+import { apiCall } from "../api/api.js";
 
 export const loginUser = async (email, password) => {
   const data = JSON.stringify({
@@ -9,7 +9,7 @@ export const loginUser = async (email, password) => {
     password: password.value,
   });
 
-  const { accessToken, name } = await postRequest(apiUrls.login_Url, "post", data);
+  const { accessToken, name } = await apiCall(apiUrls.login_Url, "post", data);
 
   if (!accessToken) {
     displayMessage("login", "Wrong username or password", "danger");

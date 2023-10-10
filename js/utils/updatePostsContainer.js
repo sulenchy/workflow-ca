@@ -1,4 +1,4 @@
-import { displayPosts } from "./displayPosts.js";
+import { displayPosts } from "../posts/displayPosts.js";
 
 export const updatePostsSection = (value, url) => {
   const postsContainer = document.getElementById("posts-container");
@@ -8,7 +8,6 @@ export const updatePostsSection = (value, url) => {
   setTimeout(() => {
     if (value === "posts") {
       displayPosts(url);
-      console.log("working");
     }
     scrollToPosts();
   }, 500);

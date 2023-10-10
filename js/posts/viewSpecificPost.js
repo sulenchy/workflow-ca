@@ -1,7 +1,7 @@
-import { getUrlId } from "../utils/queryParam.js";
+import { getQueryParamId } from "../utils/queryParam.js";
 
 export const viewPost = (postId) => {
-  const id = getUrlId();
+  const id = getQueryParamId();
   if (Number(id) === postId) {
     return;
   }

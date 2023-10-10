@@ -1,8 +1,7 @@
 import { fetchLocalStorage } from "../localStorage/localStorage.js";
 import { apiCall } from "../api/api.js";
-import { updatePostsSection } from "./updatePostsContainer.js";
+import { updatePostsSection } from "../utils/updatePostsContainer.js";
 import { createEditModal } from "../render/createHtml/createEditModal.js";
-import { deleteRequest } from "../api/delete.js";
 import { apiUrls } from "../api/constant.js";
 
 export const checkEditPost = (author) => {
@@ -14,15 +13,9 @@ export const checkEditPost = (author) => {
 };
 
 export const deletePost = async (id) => {
-  const currentPage = location.href;
+  apiCall(`${apiUrls.posts_Url}/${id}`, "delete");
 
-  deleteRequest(`${apiUrls.posts_Url}/${id}`);
-
-  if (currentPage.match(`/feed/`)) {
-    updatePostsSection("posts", apiUrls.posts_Parameter);
-  } else if (currentPage.match(`/profile/`)) {
-    updatePostsSection("posts", apiUrls.profile_Posts_Parameter);
-  }
+  updateCurrentPage();
 };
 
 export const editPost = (id, title, body, media) => {
@@ -44,18 +37,16 @@ const putPost = async (id, title, body, media) => {
       media: media.value,
     });
 
-    const response = await apiCall(apiUrls.posts_Url + `/${id}`, "put", data);
-
-    console.log(response);
+    const { errors } = await apiCall(apiUrls.posts_Url + `/${id}`, "put", data);
+    if (errors) {
+      closeModal();
+      alert(`Ups, something went wrong 
+      ${errors[0].message}`);
+    }
 
     closeModal();
 
-    const currentPage = location.href;
-    if (currentPage.match(`/feed/`)) {
-      updatePostsSection("posts", apiUrls.posts_Parameter);
-    } else if (currentPage.match(`/profile/`)) {
-      updatePostsSection("posts", apiUrls.profile_Posts_Parameter);
-    }
+    updateCurrentPage();
   } catch (error) {
     console.log(error);
   }
@@ -64,4 +55,13 @@ const putPost = async (id, title, body, media) => {
 const closeModal = () => {
   const modal = document.querySelector(".edit-modal");
   modal.remove();
+};
+
+const updateCurrentPage = () => {
+  const currentPage = location.href;
+  if (currentPage.match(`/feed/`)) {
+    updatePostsSection("posts", apiUrls.posts_Parameter);
+  } else if (currentPage.match(`/profile/`)) {
+    updatePostsSection("posts", apiUrls.profile_Posts_Parameter);
+  }
 };

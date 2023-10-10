@@ -16,7 +16,7 @@ const usersUrl = profilesUrl + `/?_following&_followers&_posts`;
 
 const postsParameter = postsUrl + `?_author=true&_comments=true&_reactions=true`;
 const postParameter = postUrl + `/?_author=true&_comments=true&_reactions=true`;
-const followedPosts = postsUrl + `/following`;
+const followedPosts = postsUrl + `/following?_author=true&_comments=true&_reactions=true`;
 const activePostsUrl = postsParameter + `&_active=true`;
 
 const commentUrl = postUrl + `/comment`;
