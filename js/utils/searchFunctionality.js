@@ -1,8 +1,8 @@
 import { renderPosts } from "../render/render.js";
 import { updatePostsSection } from "./updatePostsContainer.js";
-import { getRequest } from "../api/get.js";
 import { renderUsers } from "../render/render.js";
 import { apiUrls } from "../api/constant.js";
+import { apiCall } from "../api/api.js";
 
 const searchForm = document.getElementById("search");
 const searchParameter = document.getElementById("searchParameter");
@@ -21,7 +21,7 @@ export const search = () => {
 };
 
 const filterPosts = async (value) => {
-  const posts = await getRequest(apiUrls.posts_Parameter);
+  const posts = await apiCall(apiUrls.posts_Parameter, "get");
   console.log(posts);
   console.log(value);
 
@@ -34,7 +34,7 @@ const filterPosts = async (value) => {
 };
 
 const filterUsers = async (value) => {
-  const users = await getRequest(apiUrls.users_Url);
+  const users = await apiCall(apiUrls.users_Url, "get");
 
   const filteredUsers = users.filter(({ name }) => {
     const stringifiedName = name.toString();
