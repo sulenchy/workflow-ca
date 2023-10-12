@@ -1,5 +1,6 @@
 import { registerUser } from "./js/entry/register.js";
 import { loginUser } from "./js/entry/login.js";
+import { checkIfLoggedIn } from "./js/entry/loginWall.js";
 
 const login = document.getElementById("log-in");
 const register = document.getElementById("register");
@@ -17,3 +18,5 @@ login.addEventListener("submit", () => {
   loginUser(email, password);
   login.reset();
 });
+
+checkIfLoggedIn();
