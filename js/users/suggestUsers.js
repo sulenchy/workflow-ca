@@ -17,7 +17,10 @@ export const suggestUsers = async (text) => {
   const msg = createMsg(text);
   container.append(msg);
   displayUsers();
-  changeSearchElements();
+
+  setTimeout(() => {
+    changeSearchElements();
+  }, 200);
 };
 
 const createMsg = (text) => {

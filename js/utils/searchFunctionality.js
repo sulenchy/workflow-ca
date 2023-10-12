@@ -3,9 +3,12 @@ import { updatePostsSection } from "./updatePostsContainer.js";
 import { renderUsers } from "../render/render.js";
 import { apiUrls } from "../api/constant.js";
 import { apiCall } from "../api/api.js";
+import { changeSearchElements } from "./changeSearchElements.js";
 
 const searchForm = document.getElementById("search");
 const searchParameter = document.getElementById("searchParameter");
+const optionPostsBtn = document.getElementById("option-posts");
+const optionUsersBtn = document.getElementById("option-users");
 
 export const search = () => {
   searchForm.addEventListener("input", () => {
@@ -22,8 +25,6 @@ export const search = () => {
 
 const filterPosts = async (value) => {
   const posts = await apiCall(apiUrls.posts_Parameter, "get");
-  console.log(posts);
-  console.log(value);
 
   const filteredPosts = posts.filter(({ title }) => {
     const stringifiedTitle = title.toString();
@@ -43,4 +44,14 @@ const filterUsers = async (value) => {
 
   updatePostsSection();
   renderUsers(filteredUsers);
+};
+
+optionPostsBtn.addEventListener("click", () => renderOptions(apiUrls.posts_Parameter, renderPosts));
+optionUsersBtn.addEventListener("click", () => renderOptions(apiUrls.users_Url, renderUsers));
+
+const renderOptions = async (url, renderFunction) => {
+  const result = await apiCall(url, "get");
+  updatePostsSection();
+  renderFunction(result);
+  changeSearchElements();
 };

@@ -1,6 +1,5 @@
 import { renderPosts } from "../render/render.js";
 import { updatePostsSection } from "./updatePostsContainer.js";
-
 import { apiUrls } from "../api/constant.js";
 import { apiCall } from "../api/api.js";
 
@@ -41,3 +40,38 @@ const displayActivePosts = async () => {
   updatePostsSection();
   renderPosts(activePosts);
 };
+
+// const displayUsersByFriends = async () => {
+//   try {
+//     const users = await apiCall(apiUrls.users_Url, "get");
+
+//     const sortedUsers = users.sort((a, b) => {
+//       return b.friends - a.friends;
+//     });
+
+//     console.log(sortedUsers);
+//   } catch (error) {
+//     console.error("Error fetching and sorting users by friends:", error);
+//   }
+// };
+
+// const displayUsersByPosts = async () => {
+//   try {
+//     const users = await apiCall(apiUrls.users_Url, "get");
+
+//     users.filter(({ _count }) => {
+//       const { posts } = _count;
+//       const sortedUsers = posts.sort((a, b) => {
+//         return b.posts - a.posts;
+//       });
+
+//       return sortedUsers;
+//     });
+
+//     console.log(sortedUsers);
+//   } catch (error) {
+//     console.error("Error fetching and sorting users by posts:", error);
+//   }
+// };
+
+// displayUsersByPosts();
