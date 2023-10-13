@@ -48,10 +48,11 @@ li {
   top: 30%;
   left: 50%;
   transform: translateX(-50%);
-  width: 60%;
-  min-width: 290px;
+  min-width: 550px;
   z-index: 1000;
-  height: 40%;
+  @media (max-width: 600px) {
+    min-width: 290px;
+  }
 }
 
 #option {

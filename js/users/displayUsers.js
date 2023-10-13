@@ -1,7 +1,7 @@
 import { apiCall } from "../api/api.js";
 import { renderProfile, renderUsers } from "../render/render.js";
 import { apiUrls } from "../api/constant.js";
-import { logOuTbTN } from "../utils/logOutBtn.js";
+import { editBtn } from "../utils/editBtn.js";
 import { createProfileId } from "../utils/queryParam.js";
 import { checkResult } from "../users/suggestUsers.js";
 import { dynamicH2Change } from "../utils/dynamicHeaderChange.js";
@@ -11,7 +11,7 @@ import { followBtnHandler } from "../utils/followBtnHandler.js";
 export const displayUserProfile = async () => {
   const profile = await apiCall(apiUrls.profile_Parameter, "get");
   renderProfile(profile);
-  logOuTbTN();
+  editBtn();
   followBtnHandler();
 };
 

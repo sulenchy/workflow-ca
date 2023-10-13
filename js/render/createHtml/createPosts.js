@@ -12,7 +12,7 @@ export const createPosts = ({ author, title, body, media, created, id, comments 
   post.id = id;
 
   const postAuthor = createPostAuthor(author, id, title, body, media);
-  const postContent = createPostContent(title, body, media, created, id, comments);
+  const postContent = createPostContent(title, body, media, created);
 
   postContent.style.cursor = "pointer";
   postContent.addEventListener("click", (e) => viewPost(id));
@@ -22,7 +22,7 @@ export const createPosts = ({ author, title, body, media, created, id, comments 
   postContainer.append(post);
 };
 
-const createPostAuthor = ({ name, avatar }, id, title, body, media) => {
+const createPostAuthor = ({ name, avatar }, id, title, body, media, comment) => {
   const element = createElement("div", ["d-flex", "align-items-center", "justify-content-between", "pb-2", "border-bottom", "border-primary"]);
   const img = createElement("img", ["author-img"], undefined, undefined, undefined, undefined, name);
 
@@ -75,10 +75,10 @@ const createEditBtn = (id, title, body, media) => {
   const btn = createElement("button", ["btn", "text-primary", "bg-white", "border", "border-primary", "dropdown-toggle"], undefined, "Edit");
   btn.setAttribute("data-bs-toggle", "dropdown");
 
-  const firstLi = createElement("li", ["dropdown-item"], undefined, "delete");
+  const firstLi = createElement("li", ["dropdown-item", "text-primary"], undefined, "Delete");
   firstLi.addEventListener("click", (e) => deletePost(id));
 
-  const secondLi = createElement("li", ["dropdown-item"], undefined, "Edit");
+  const secondLi = createElement("li", ["dropdown-item", "text-primary"], undefined, "Edit");
   secondLi.addEventListener("click", (e) => editPost(id, title, body, media));
 
   const ul = createElement("ul", ["dropdown-menu", "edit-dropdown"], [firstLi, secondLi]);

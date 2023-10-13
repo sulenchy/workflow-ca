@@ -7,6 +7,7 @@ export const createCommentsContainer = (id, comments) => {
   element.id = id;
 
   const commentBtn = createElement("button", ["btn", "btn-info", "comment-btn"], undefined, "Comments");
+  commentBtn.innerText += `  (${comments.length})`;
 
   commentBtn.addEventListener("click", () => {
     renderCommentSection(id, comments);

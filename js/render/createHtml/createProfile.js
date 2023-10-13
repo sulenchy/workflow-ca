@@ -14,7 +14,8 @@ export const createProfileInfo = (name, email, avatar) => {
   const h1 = createElement("h1", ["text-primary", "mb-1"], undefined, name);
   const p = createElement("p", ["mb-1"], undefined, email);
   const button = createElement("button", ["btn", "btn-primary", "text-white", "mt-1", "profile-btn"], undefined, "Follow");
-  element.append(h1, p, button);
+  const div = createElement("div", ["profile-btn-container"], [button]);
+  element.append(h1, p, div);
 
   profileInfoContainer.append(img, element);
 };

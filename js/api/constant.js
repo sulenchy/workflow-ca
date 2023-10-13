@@ -20,6 +20,7 @@ const followedPosts = postsUrl + `/following?_author=true&_comments=true&_reacti
 const activePostsUrl = postsParameter + `&_active=true`;
 
 const commentUrl = postUrl + `/comment`;
+const avatarUrl = profilesUrl + `/${id}/media`;
 
 export const apiUrls = {
   register_Url: registerUrl,
@@ -35,4 +36,5 @@ export const apiUrls = {
   followed_posts: followedPosts,
   comment_Url: commentUrl,
   active_Posts_Url: activePostsUrl,
+  avatar_Url: avatarUrl,
 };

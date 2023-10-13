@@ -3,7 +3,7 @@ import { apiCall } from "../api/api.js";
 import { updatePostsSection } from "../utils/updatePostsContainer.js";
 import { createEditModal } from "../render/createHtml/createEditModal.js";
 import { apiUrls } from "../api/constant.js";
-
+import { closeModal } from "../utils/editProfileImg.js";
 export const checkEditPost = (author) => {
   const name = fetchLocalStorage("name");
 
@@ -50,11 +50,6 @@ const putPost = async (id, title, body, media) => {
   } catch (error) {
     console.log(error);
   }
-};
-
-const closeModal = () => {
-  const modal = document.querySelector(".edit-modal");
-  modal.remove();
 };
 
 const updateCurrentPage = () => {

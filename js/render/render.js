@@ -26,9 +26,9 @@ export const renderCommentSection = (id, comments) => {
 const renderComments = (comments) => {
   if (comments.length > 0) {
     comments.forEach(renderComment);
+  } else {
+    displayCommentMsg();
   }
-
-  displayCommentMsg();
 };
 
 const renderComment = (data) => {
