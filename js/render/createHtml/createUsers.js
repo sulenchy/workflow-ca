@@ -2,7 +2,7 @@ import { createElement } from "./createHtmlFunction.js";
 const postContainer = document.getElementById("posts-container");
 
 export const createUserCardContainer = () => {
-  const element = createElement("div", ["d-flex", "flex-wrap"]);
+  const element = createElement("div", ["d-flex", "flex-wrap", "justify-content-center"]);
   element.id = "userCardsContainer";
   postContainer.append(element);
 };

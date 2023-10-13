@@ -28,15 +28,11 @@ followingBtn.addEventListener("click", () => {
   feedBtnHandler(displayFollowers, "following", id);
 });
 
-const displayProfile = async () => {
-  try {
-    displayUserProfile();
-    dynamicH2Change(`${profileId}s latest posts:`);
-    displayPosts(apiUrls.profile_Posts_Parameter);
-    changeSearchElements();
-  } catch (error) {
-    console.log(error);
-  }
+const displayProfile = () => {
+  displayUserProfile();
+  dynamicH2Change(`${profileId}s latest posts:`);
+  displayPosts(apiUrls.profile_Posts_Parameter);
+  changeSearchElements();
 };
 
 displayProfile();

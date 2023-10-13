@@ -1,9 +1,11 @@
+import { toggleLoader } from "./spinner.js";
 import { updatePostsSection } from "./updatePostsContainer.js";
 
 export const feedBtnHandler = (renderFunction, value, id) => {
   toggleBtnClass(id);
   renderFunction(value);
   updatePostsSection();
+  toggleLoader("on");
 };
 
 const toggleBtnClass = (id) => {

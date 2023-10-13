@@ -5,6 +5,14 @@ const feedAnchorTag = document.querySelector(".feed-anchorTag");
 const profileAnchorTag = document.querySelector(".profile-anchorTag");
 const msgContainer = document.getElementById("msg-container");
 
+/**
+ * Checks if user has logged in, and  if user is logged in, grants user access to feed and profile page.
+ *
+ * This function checks for the users name in local storage.  if  name does not exist, the user has not logged in.  and the links to feed and profile page will take the user to the login form
+ *
+ * @example usage:
+ * checkIfLoggedIn()
+ */
 export const checkIfLoggedIn = () => {
   const name = fetchLocalStorage("name");
 
