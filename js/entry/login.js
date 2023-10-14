@@ -4,8 +4,7 @@ import { apiUrls } from "../api/constant.js";
 import { apiCall } from "../api/api.js";
 
 /**
- * Logs in a user with the provided email and password.
-
+ * Logs in a user with the provided email and password, stores the user name and JWT in local storage
  *
  *
  * @async

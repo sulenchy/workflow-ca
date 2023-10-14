@@ -2,6 +2,17 @@ import { apiCall } from "../api/api.js";
 import { apiUrls } from "../api/constant.js";
 import { createElement } from "../render/createHtml/createHtmlFunction.js";
 
+/**
+ * Creates an edit modal for user profile content.
+ *
+ * This function dynamically generates an edit modal for user profile content, such as profile images. It includes a form for making edits and submitting changes.
+ *
+ * @returns {void}
+ *
+ * @example
+ * // Example usage:
+ * createEditModal();
+ */
 export const createEditModal = () => {
   const main = document.querySelector("main");
 
@@ -55,12 +66,37 @@ const modalBody = () => {
   element.append(input, btn);
   return element;
 };
-
+/**
+ * Handles the submission of a user's avatar URL update.
+ *
+ * This function is designed to handle the submission of a form for updating a user's avatar URL. It prevents the default form submission behavior, extracts the URL input field value, and calls the `putAvatar` function to perform the update.
+ *
+ * @returns {void}
+ *
+ * @example
+ * // Example usage:
+ * const form = document.querySelector(".profile-img_form");
+ * form.addEventListener("submit", () => handleAvatarSubmit());
+ */
 const handleAvatarSubmit = () => {
   event.preventDefault();
   const [url] = event.target.elements;
   putAvatar(url);
 };
+
+/**
+ * Updates the user's avatar with the specified URL.
+ *
+ * This function sends a PUT request to the API to update the user's avatar with the provided URL. It prepares the request data, sends the request, and logs the response or any errors that occur during the process.
+ *
+ * @param {HTMLInputElement} url - The input field containing the new avatar URL.
+ * @returns {void}
+ *
+ * @example
+ * // Example usage:
+ * const avatarUrlInput = https://imgurl.com;
+ * putAvatar(avatarUrlInput);
+ */
 
 const putAvatar = async (url) => {
   try {
@@ -73,7 +109,13 @@ const putAvatar = async (url) => {
     console.log(error);
   }
 };
-
+/**
+ * Closes The The modal by removing it from the page
+ *
+ * @example
+ * //Example usage
+ * closeModal();
+ */
 export const closeModal = () => {
   const modal = document.querySelector(".edit-modal");
   modal.remove();

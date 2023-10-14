@@ -25,7 +25,8 @@ export const handleCommentSubmit = (id) => {
 /**
  * Takes the comment a user has submitted, stringifies if into a value, with the key "body". And  sends it to a server trough a put request using the apiCall function
  *
- * If the put request failes, alerts the user with a message
+ * If the put request fails, alerts the user with a message.
+ *
  * @param {number} id - The id belonging to the post the user has commented
  * @param {HTMLInputElement} comment - The input element containing a user`s comment about a post
  */

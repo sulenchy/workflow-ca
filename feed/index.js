@@ -32,6 +32,19 @@ allPostsBtn.addEventListener("click", () => {
   updateHref();
 });
 
+/**
+ * Renders the content of the current page based on its state and URL.
+ *
+ * This function examines the current page's state and URL, and renders the appropriate content accordingly. If a specific post ID is provided in the URL, it displays that post; otherwise, it displays a list of posts from followed users. It also triggers functions to adjust the page content and perform searches as needed.
+ *
+ * @async
+ * @returns {void}
+ *
+ * @example
+ * // Example usage:
+ * renderPageContent();
+ */
+
 const renderPageContent = async () => {
   const id = getQueryParamId();
   search();

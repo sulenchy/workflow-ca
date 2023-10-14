@@ -2,6 +2,17 @@ import { createElement } from "../render/createHtml/createHtmlFunction.js";
 import { createEditModal } from "./editProfileImg.js";
 import { getQueryParamId } from "./queryParam.js";
 
+/**
+ * Conditionally displays an "Edit" button if a user's ID is not provided in the query parameters.
+ *
+ * This function checks if a user's ID is provided in the query parameters. If an ID is not present, it creates and displays an "Edit" button,  used to edit the user's avatar, or let the user log out.
+ *
+ * @returns {void}
+ *
+ * @example
+ * // Example usage:
+ * editBtn();
+ */
 export const editBtn = () => {
   const id = getQueryParamId();
 
@@ -19,7 +30,7 @@ const createdEditDropDown = () => {
   container.append(btn);
 };
 
-const createEditBtn = (id, title, body, media) => {
+const createEditBtn = () => {
   const element = createElement("div", ["dropdown"]);
 
   const btn = createElement("button", ["btn", "text-white", "bg-primary", "border", "border-primary", "dropdown-toggle"], undefined, "Edit");
@@ -37,7 +48,15 @@ const createEditBtn = (id, title, body, media) => {
 
   return element;
 };
-
+/**
+ * Logs a user out
+ *
+ * This function  removes the users name and JTW from local storage, and sends the user back to the home page
+ *
+ * @example
+ * //Example usage
+ * logOut();
+ */
 const logOut = () => {
   localStorage.removeItem("name", "token");
   window.location.href = `../../index.html`;

@@ -28,6 +28,17 @@ followingBtn.addEventListener("click", () => {
   feedBtnHandler(displayFollowers, "following", id);
 });
 
+/**
+ * Displays the user's profile and their latest posts.
+ *
+ * This function combines several actions to display a user's profile and their latest posts. It calls the `displayUserProfile` function to render the user's profile information, changes the H2 heading text to include the user's name and indicate the display of their latest posts, and then fetches and displays the user's latest posts.
+ *
+ * @returns {void}
+ *
+ * @example
+ * // Example usage to display the user's profile and latest posts:
+ * displayProfile();
+ */
 const displayProfile = () => {
   displayUserProfile();
   dynamicH2Change(`${profileId}s latest posts:`);

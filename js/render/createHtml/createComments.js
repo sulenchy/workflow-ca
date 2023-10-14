@@ -18,7 +18,7 @@ export const createCommentsContainer = (id, comments) => {
   return element;
 };
 
-export const createCommentForm = (id) => {
+export const createCommentForm = () => {
   const element = createElement("form");
   element.action = "post";
 
