@@ -41,7 +41,7 @@ followingBtn.addEventListener("click", () => {
  */
 const displayProfile = () => {
   displayUserProfile();
-  dynamicH2Change(`${profileId}s latest posts:`);
+  dynamicH2Change(profileId + "`s latest posts:");
   displayPosts(apiUrls.profile_Posts_Parameter);
   changeSearchElements();
 };

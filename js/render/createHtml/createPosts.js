@@ -18,11 +18,13 @@ export const createPosts = ({ author, title, body, media, created, id, comments 
   postContent.addEventListener("click", (e) => viewPost(id));
 
   const commentsContainer = createCommentsContainer(id, comments);
+
   post.append(postAuthor, postContent, commentsContainer);
+
   postContainer.append(post);
 };
 
-const createPostAuthor = ({ name, avatar }, id, title, body, media, comment) => {
+const createPostAuthor = ({ name, avatar }, id, title, body, media) => {
   const element = createElement("div", ["d-flex", "align-items-center", "justify-content-between", "pb-2", "border-bottom", "border-primary"]);
   const img = createElement("img", ["author-img"], undefined, undefined, undefined, undefined, name);
 
@@ -71,7 +73,6 @@ const createHeadingContainer = (title, created) => {
 
 const createEditBtn = (id, title, body, media) => {
   const element = createElement("div", ["dropdown"]);
-
   const btn = createElement("button", ["btn", "text-primary", "bg-white", "border", "border-primary", "dropdown-toggle"], undefined, "Edit");
   btn.setAttribute("data-bs-toggle", "dropdown");
 

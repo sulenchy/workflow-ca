@@ -22,5 +22,11 @@ export const checkIfLoggedIn = () => {
 
     const msg = createElement("p", ["fw-bold", "text-primary", "text-center"], undefined, "You have not logged in yet!");
     msgContainer.append(msg);
+  } else {
+    const entryBtns = document.querySelector(".entryBtns");
+    const loginSection = document.getElementById("log-in_section");
+
+    entryBtns.remove();
+    loginSection.remove();
   }
 };
