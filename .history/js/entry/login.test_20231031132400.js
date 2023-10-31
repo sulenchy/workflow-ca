@@ -24,6 +24,7 @@ describe("loginUser", () => {
     expect(require("../api/api.js").apiCall).toHaveBeenCalledWith("mocked-api-url", "post", expect.any(String));
     expect(require("../localStorage/localStorage.js").setLocalStorage).toHaveBeenCalledWith("token", mockAccessToken);
     expect(require("../localStorage/localStorage.js").setLocalStorage).toHaveBeenCalledWith("name", mockName);
+
   });
 
   it("should handle login failure", async () => {

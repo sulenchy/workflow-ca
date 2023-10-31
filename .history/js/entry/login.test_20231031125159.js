@@ -13,7 +13,7 @@ describe("loginUser", () => {
     const mockName = "John Doe";
     require("../api/api.js").apiCall.mockResolvedValue({ accessToken: mockAccessToken, name: mockName });
 
-    // Mock the input elements (Can use a library like jsdom for this - installed "jest-environment-jsdom": "^29.7.0", as a dev dependency)
+    // Mock the input elements (an use a library like jsdom for this)
     const emailInput = { value: "example@mail.com" };
     const passwordInput = { value: "password1234" };
 
@@ -24,13 +24,15 @@ describe("loginUser", () => {
     expect(require("../api/api.js").apiCall).toHaveBeenCalledWith("mocked-api-url", "post", expect.any(String));
     expect(require("../localStorage/localStorage.js").setLocalStorage).toHaveBeenCalledWith("token", mockAccessToken);
     expect(require("../localStorage/localStorage.js").setLocalStorage).toHaveBeenCalledWith("name", mockName);
+
+    // You can add more assertions if needed.
   });
 
   it("should handle login failure", async () => {
     // Mock the API response to simulate a login failure
     require("../api/api.js").apiCall.mockResolvedValue({ accessToken: null });
 
-    // Mock the input elements (Can use a library like jsdom for this - installed "jest-environment-jsdom": "^29.7.0", as a dev dependency)
+    // Mock the input elements (you can use a library like jsdom for this)
     const emailInput = { value: "example@mail.com" };
     const passwordInput = { value: "incorrect-password" };
 
