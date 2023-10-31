@@ -17,24 +17,16 @@ describe("loginUser", () => {
     const emailInput = { value: "example@mail.com" };
     const passwordInput = { value: "password1234" };
 
-    // // Mock window.location.replace
-    // const originalLocation = window.location;
-    // const mockLocation = {
-    //   replace: jest.fn(),
-    // };
-    // window.location = mockLocation;
+    // Mock window.location.replace
+    const originalReplace = window.location.replace;
+    window.location.replace = jest.fn();
 
     // Call the function
     await loginUser(emailInput, passwordInput);
 
     // Assert that the functions were called as expected
 
-    // // Ensure that window.location.replace was called
-    // expect(window.location.replace).toHaveBeenCalledWith("../../profile/index.html");
-
-    // // Restore the original window.location.replace
-    // window.location.replace = originalReplace;
-
+    
     expect(require("../api/api.js").apiCall).toHaveBeenCalledWith("mocked-api-url", "post", expect.any(String));
     expect(require("../localStorage/localStorage.js").setLocalStorage).toHaveBeenCalledWith("token", mockAccessToken);
     expect(require("../localStorage/localStorage.js").setLocalStorage).toHaveBeenCalledWith("name", mockName);
