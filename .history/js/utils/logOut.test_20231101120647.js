@@ -17,3 +17,22 @@ describe("logOut", () => {
     expect(navigateTo).toHaveBeenCalledWith("../../index.html");
   });
 });
+
+describe("Sample Test with jest.fn()", () => {
+  it("should pass", () => {
+    // Create a mock function for fetchData
+    const fetchDataMock = jest.fn();
+
+    // Mock fetchData to return a value when called
+    fetchDataMock.mockReturnValue("Mocked Data");
+
+    // Call the function that uses fetchData
+    const result = fetchDataMock("example-url");
+
+    // Ensure that fetchDataMock was called with the expected arguments
+    expect(fetchDataMock).toHaveBeenCalledWith("example-url");
+
+    // Ensure that the result matches the value we mocked
+    expect(result).toBe("Mocked Data");
+  });
+});

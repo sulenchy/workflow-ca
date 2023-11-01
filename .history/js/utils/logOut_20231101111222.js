@@ -73,7 +73,6 @@ const logOut = (navigateTo) => {
   localStorage.removeItem("name");
   console.log("localStorage.removeItem called for 'name'");
   localStorage.removeItem("token");
-  console.log("localStorage.removeItem called for 'token'");
   navigateTo("../../index.html");
 };
 
