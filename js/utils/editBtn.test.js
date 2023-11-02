@@ -13,28 +13,7 @@
 // IF logOut had been exported from editBtn.js, this would be the test:
 // Commented out to bypass failing test :
 // ****************************************************************** //
-// import logOut from "./editBtn.js"; // THIS will not work since logOut is not exported from editBtn.js
-// import "jest-localstorage-mock";
-
-// describe("logOut", () => {
-//   it("should remove name and token from localStorage and navigate to the home page", () => {
-//     // Mock the navigateTo function
-//     const navigateTo = jest.fn();
-
-//     logOut(navigateTo);
-
-//     // Ensure localStorage.removeItem is called for "name" and "token"
-//     expect(localStorage.removeItem).toHaveBeenCalledWith("name"); // This will pass
-//     expect(localStorage.removeItem).toHaveBeenCalledWith("token"); // THIS WOULD FAIL IF localStorage.removeItem("name", "token"); WAS NOT SPLIT UP INTO TWO LINES
-
-//     // Verify that navigateTo was called with the expected URL
-//     expect(navigateTo).toHaveBeenCalledWith("../../index.html");
-//   });
-// });
-
-// Actual test to not get fail due to empty test file:
-// logOut.test.js
-import logOut from "./logOut.js";
+import { logOut } from "./editBtn.js"; // THIS will not work since logOut is not exported from editBtn.js
 import "jest-localstorage-mock";
 
 describe("logOut", () => {
@@ -45,10 +24,32 @@ describe("logOut", () => {
     logOut(navigateTo);
 
     // Ensure localStorage.removeItem is called for "name" and "token"
-    expect(localStorage.removeItem).toHaveBeenCalledWith("name");
-    expect(localStorage.removeItem).toHaveBeenCalledWith("token");
+    expect(localStorage.removeItem).toHaveBeenCalledWith("name"); // This will pass
+    expect(localStorage.removeItem).toHaveBeenCalledWith("token"); // THIS WILL FAIL IF localStorage.removeItem("name", "token"); WAS NOT SPLIT UP INTO TWO LINES in editBtn.js
 
     // Verify that navigateTo was called with the expected URL
     expect(navigateTo).toHaveBeenCalledWith("../../index.html");
   });
 });
+
+// Actual test to not get fail due to empty test file:
+// logOut.test.js
+// ******* COMMENTED OUT NOW THAT IMPORT FROM editBtn can be done after adding export in front of logOut in editBtn.js ********
+// import logOut from "./logOut.js";
+// import "jest-localstorage-mock";
+
+// describe("logOut", () => {
+//   it("should remove name and token from localStorage and navigate to the home page", () => {
+//     // Mock the navigateTo function
+//     const navigateTo = jest.fn();
+
+//     logOut(navigateTo);
+
+//     // Ensure localStorage.removeItem is called for "name" and "token"
+//     expect(localStorage.removeItem).toHaveBeenCalledWith("name");
+//     expect(localStorage.removeItem).toHaveBeenCalledWith("token");
+
+//     // Verify that navigateTo was called with the expected URL
+//     expect(navigateTo).toHaveBeenCalledWith("../../index.html");
+//   });
+// });
