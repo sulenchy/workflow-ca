@@ -1,11 +1,11 @@
 // friendly-login.cy.js
 
-describe("Login", () => {
+describe("Logout", () => {
   beforeEach(() => {
     cy.clearLocalStorage(); // Clear localStorage before each test
   });
 
-  it("should log in successfully", () => {
+  it("should log out and successfully remove token from localStorage", () => {
     cy.visit("/"); // Adjust the URL as needed
 
     // Fill in the email and password fields with valid credentials
