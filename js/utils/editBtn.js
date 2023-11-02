@@ -57,7 +57,7 @@ const createEditBtn = () => {
  * //Example usage
  * logOut();
  */
-const logOut = () => {
+export const logOut = () => {
   localStorage.removeItem("name", "token");
   window.location.href = `../../index.html`;
 };
