@@ -1,6 +1,7 @@
 ### Automated Workflow Cypress and Jest tests:
 
 - Workflow Branch
+
   [![Automated E2E Testing](https://github.com/runeunhjem/workflow-ca/actions/workflows/main.yml/badge.svg)](https://github.com/runeunhjem/workflow-ca/actions/workflows/main.yml)
   [![Automated Unit Testing](https://github.com/runeunhjem/workflow-ca/actions/workflows/unit-test.yml/badge.svg)](https://github.com/runeunhjem/workflow-ca/actions/workflows/unit-test.yml)
 
