@@ -18,8 +18,6 @@ describe("Login", () => {
     // Check if a token is present in localStorage
     cy.window().its("localStorage.token").should("exist");
 
-    cy.wait(3000); // Wait for the login to complete before visiting the profile page
-
     // After successful login, navigate to the profile page
     cy.visit("/profile/index.html"); // Adjust the URL as needed
 
