@@ -33,5 +33,5 @@ export const loginUser = async (email, password) => {
   }
   setLocalStorage("token", accessToken);
   setLocalStorage("name", name);
-  window.location.replace("../../profile/index.html");
+  window.location.replace("./profile/index.html");
 };
